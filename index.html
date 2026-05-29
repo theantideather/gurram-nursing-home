@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankur Gurram Nursing Home — Maternity, Infertility & Laparoscopic Surgery | Solapur</title>
+  <meta name="description" content="Ankur Gurram Nursing Home — Advanced maternity, infertility, and laparoscopic surgery care in Solapur, India. Manyata certified, FOGSI quality standards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["'Instrument Serif'", "serif"],
+            body: ["'Barlow'", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #000; margin: 0; }
+    .liquid-glass {
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-glass::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.45) 0%,
+        rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.15) 80%,
+        rgba(255,255,255,0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .liquid-glass-strong {
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      border: none;
+      box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-glass-strong::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.5) 0%,
+        rgba(255,255,255,0.2) 20%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.2) 80%,
+        rgba(255,255,255,0.5) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    /* Full-bleed video; slight zoom-out via min-size, no side bars */
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-video-layer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      min-width: 103%;
+      min-height: 103%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -48%);
+      object-fit: cover;
+      object-position: center center;
+    }
+    .hero-video-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 228, 232, 0.88) 0%,
+        rgba(200, 235, 230, 0.65) 12%,
+        rgba(129, 216, 208, 0.4) 28%,
+        rgba(94, 174, 166, 0.15) 45%,
+        transparent 62%
+      );
+    }
+    .hero-top-fade {
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 228, 232, 0.5) 0%,
+        rgba(129, 216, 208, 0.2) 35%,
+        transparent 50%
+      );
+    }
+    .hero-readable {
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.75);
+    }
+    .hero-side-panel {
+      text-align: left;
+    }
+    .hero-side-panel .hero-body {
+      font-weight: 600;
+      font-size: 1.0625rem;
+      line-height: 1.55;
+    }
+    @media (min-width: 1024px) {
+      .hero-side-panel .hero-body {
+        font-size: 1.125rem;
+      }
+    }
+    .team-photo-wrap {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+    }
+    .team-photo-labels {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 34%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.35rem;
+      padding: 0.65rem 0.4rem 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @media (min-width: 768px) {
+      .team-photo-labels {
+        gap: 0.5rem;
+        padding: 1rem 0.65rem 0;
+        height: 32%;
+      }
+    }
+    .team-photo-label {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+    .glass-label-bold {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 0.01em;
+      color: #fff;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+    }
+    .section-surface {
+      background: linear-gradient(
+        180deg,
+        #f5e4e8 0%,
+        #e8d4dc 6%,
+        #c8ebe6 22%,
+        #9fd4cf 48%,
+        #5eaea6 68%,
+        #2d4f4c 88%,
+        #1a3230 100%
+      );
+    }
+    .section-surface-mid {
+      background: linear-gradient(
+        165deg,
+        #f8e8ec 0%,
+        #d8ebe8 30%,
+        #7ec4bc 58%,
+        #2a4543 100%
+      );
+    }
+    /* Convix-style light frame — high contrast, fonts unchanged */
+    .sight-page {
+      background: #ededed;
+      padding: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .sight-page { padding: 1rem; }
+    }
+    .sight-frame {
+      position: relative;
+      width: 100%;
+      min-height: calc(100vh - 24px);
+      overflow: hidden;
+      border-radius: 1rem;
+      background: linear-gradient(180deg, #f5e8ec 0%, #e8dce4 18%, #cce8e4 45%, #9fd4cf 100%);
+    }
+    @media (min-width: 640px) {
+      .sight-frame { border-radius: 1.5rem; min-height: calc(100vh - 32px); }
+    }
+    .sight-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+    }
+    .sight-headline {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: #171717;
+    }
+    .sight-card {
+      background: #fff;
+      border-radius: 1rem;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+    .sight-tray {
+      background: #f5f2ee;
+      border-radius: 1.5rem;
+      padding: 1rem;
+    }
+    @media (min-width: 640px) {
+      .sight-tray { padding: 1.5rem; }
+    }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+  <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+  <script>
+    /* UMD build exposes window.Motion directly (not FramerMotion) */
+    if (!window.Motion && window.FramerMotion) window.Motion = window.FramerMotion;
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect, useRef, useCallback } = React;
+    const { createRoot } = ReactDOM;
+    const { motion } = window.Motion;
+
+    const FADE_MS = 500;
+    const FADE_OUT_LEAD = 0.55;
+    const HERO_VIDEO = "/public/videos/hero-bg.mp4";
+    const TEAL = "#81D8D0";
+    const PINK = "#f5e4e8";
+
+    const CONTACT = {
+      address: "1895, New Paccha Peth, Near Govt. Polytechnic College, Solapur – 413005",
+      addressMaps: "1895,+New+Paccha+Peth,+Near+Govt.+Polytechnic+College,+Solapur,+Maharashtra+413005",
+      phoneLandline: "+912173591104",
+      phoneLandlineDisplay: "0217-3591104",
+      mobile1: "+919699729130",
+      mobile1Display: "9699729130",
+      mobile2: "+918095911865",
+      mobile2Display: "8095911865",
+      email: "ankurobgy@gmail.com",
+      instagram: "https://www.instagram.com/gurramnursinghome/",
+      instagramHandle: "@gurramnursinghome",
+      mapsDirections:
+        "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=in&daddr=1895,+New+Paccha+Peth,+Near+Govt.+Polytechnic+College,+Solapur,+Maharashtra+413005",
+      mapsEmbed:
+        "https://maps.google.com/maps?q=1895,+New+Paccha+Peth,+Near+Govt.+Polytechnic+College,+Solapur,+Maharashtra+413005&hl=en&z=17&output=embed",
+      ivfDoctor: "Dr. Amey Ma. Gurram",
+    };
+
+    function waLink(num, msg) {
+      return "https://wa.me/" + num + "?text=" + encodeURIComponent(msg);
+    }
+
+    function getWhatsAppLinks(t) {
+      const msg = t("whatsappMsg");
+      return {
+        primary: waLink("919699729130", msg),
+        secondary: waLink("918095911865", msg),
+        ivf: waLink(
+          "918095911865",
+          t("whatsappIvfMsg")
+        ),
+      };
+    }
+
+    const IVF_CAMP_IMAGE = "/public/images/ivf-camp-marathi.png";
+
+    const TRANSLATIONS = {
+      en: {
+        chooseLanguage: "Choose Language",
+        english: "English",
+        marathi: "मराठी",
+        navHome: "Home",
+        navServices: "Services",
+        navDoctors: "Our Doctors",
+        navFertility: "Fertility & IVF",
+        navBlogs: "Blogs",
+        navIvfCamp: "IVF Camp",
+        navContact: "Contact",
+        bookAppointment: "Book Appointment →",
+        manyata: "Manyata Certified",
+        fogsi: "FOGSI Quality Standards — Safe Delivery",
+        hospitalName: "Ankur Gurram Nursing Home",
+        tagline: "Caring for Life At Every Stage",
+        heroBody: "Maternity, Infertility & Laparoscopic Surgery Center — trusted by families across Solapur for over two decades.",
+        ourFacilities: "▶ Our Facilities",
+        yearsCare: "Years of Trusted Care",
+        successfulDeliveries: "Successful Deliveries",
+        familySpecialists: "A family of specialists, committed to your care",
+        visitUs: "Visit Us",
+        findHospital: "Find Our Hospital",
+        getDirections: "Get Directions →",
+        whatsappUs: "WhatsApp Us →",
+        whatsappBook: "WhatsApp to Book →",
+        whatsappIvf: "IVF Consultation (Dr. Amey) →",
+        callLandline: "Call",
+        ourServices: "Our Services",
+        careReimagined: "Care Reimagined",
+        servicesSub: "Maternity, infertility, and laparoscopic surgery — all under one roof in Solapur.",
+        ourTeam: "Our Team",
+        meetTeam: "Meet Our Team",
+        meetTeamSub: "The specialists behind Ankur Gurram Nursing Home — safe delivery, fertility care, and advanced surgery.",
+        viewTeam: "View Team Details",
+        specialists: "Specialists",
+        ourDoctors: "Our Doctors",
+        doctorsSub: "A family of specialists — maternity, fertility, and laparoscopic care in Solapur.",
+        getInTouch: "Get in Touch",
+        bookTitle: "Book Your Appointment",
+        contactSub: "Ankur Gurram Nursing Home — Maternity, Infertility & Laparoscopic Surgery Center, Solapur.",
+        googleMaps: "Google Maps",
+        instagram: "Instagram",
+        email: "Email",
+        blogsTitle: "Health & Care Blogs",
+        blogsSub: "Expert guidance on IVF, embryo care, nursing, childcare, and fertility consultations.",
+        readMore: "Read more →",
+        ivfCampTitle: "Free Infertility Checkup Camp",
+        ivfCampSub: "Consult Dr. Amey Ma. Gurram — M.B.B.S., DNB (OBGY), FRM | IVF & fertility specialist.",
+        connectInstagram: "Follow on Instagram",
+        departmentsTitle: "Departments & Facilities",
+        whatsappMsg: "Hello, I would like to book an appointment at Ankur Gurram Nursing Home.",
+        whatsappIvfMsg: "Hello, I would like an IVF consultation with Dr. Amey Ma. Gurram at Ankur Gurram Nursing Home.",
+      },
+      mr: {
+        chooseLanguage: "भाषा निवडा",
+        english: "English",
+        marathi: "मराठी",
+        navHome: "मुख्यपृष्ठ",
+        navServices: "सेवा",
+        navDoctors: "आमचे डॉक्टर",
+        navFertility: "प्रजनन व IVF",
+        navBlogs: "ब्लॉग",
+        navIvfCamp: "IVF शिबिर",
+        navContact: "संपर्क",
+        bookAppointment: "अपॉइंटमेंट बुक करा →",
+        manyata: "मन्यता प्रमाणित",
+        fogsi: "FOGSI गुणवत्ता मानके — सुरक्षित प्रसूती",
+        hospitalName: "अंकुर गुर्रम नर्सिंग होम",
+        tagline: "प्रत्येक टप्प्यावर जीवनाची काळजी",
+        heroBody: "प्रसूती, वंध्यत्व व लॅपरोस्कोपिक शस्त्रक्रिया केंद्र — सोलापूरमधील कुटुंबांचा दोन दशकांचा विश्वास.",
+        ourFacilities: "▶ आमच्या सुविधा",
+        yearsCare: "वर्षांचा विश्वासू सेवा",
+        successfulDeliveries: "यशस्वी प्रसूती",
+        familySpecialists: "तज्ञांचा कुटुंब — आपल्या सेवेत वचनबद्ध",
+        visitUs: "आम्हाला भेट द्या",
+        findHospital: "रुग्णालयाचा पत्ता",
+        getDirections: "दिशा मिळवा →",
+        whatsappUs: "WhatsApp करा →",
+        whatsappBook: "WhatsApp वर बुक करा →",
+        whatsappIvf: "IVF सल्ला (डॉ. अमेय) →",
+        callLandline: "कॉल",
+        ourServices: "आमच्या सेवा",
+        careReimagined: "काळजी — नव्या दृष्टीने",
+        servicesSub: "प्रसूती, वंध्यत्व व लॅपरोस्कोपिक शस्त्रक्रिया — सोलापूरमध्ये एकाच छताखाली.",
+        ourTeam: "आमची टीम",
+        meetTeam: "आमची टीम ओळखा",
+        meetTeamSub: "अंकुर गुर्रम नर्सिंग होममधील तज्ञ — सुरक्षित प्रसूती, प्रजनन काळजी व प्रगत शस्त्रक्रिया.",
+        viewTeam: "टीम तपशील पहा",
+        specialists: "तज्ञ",
+        ourDoctors: "आमचे डॉक्टर",
+        doctorsSub: "तज्ञांचे कुटुंब — सोलापूरमध्ये प्रसूती, प्रजनन व लॅपरोस्कोपिक सेवा.",
+        getInTouch: "संपर्क",
+        bookTitle: "अपॉइंटमेंट बुक करा",
+        contactSub: "अंकुर गुर्रम नर्सिंग होम — प्रसूती, वंध्यत्व व लॅपरोस्कोपिक शस्त्रक्रिया केंद्र, सोलापूर.",
+        googleMaps: "Google Maps",
+        instagram: "Instagram",
+        email: "ईमेल",
+        blogsTitle: "आरोग्य व काळजी ब्लॉग",
+        blogsSub: "IVF, भ्रूण काळजी, नर्सिंग, बालकाळजी व प्रजनन सल्ला — तज्ञ मार्गदर्शन.",
+        readMore: "अधिक वाचा →",
+        ivfCampTitle: "मोफत वंध्यत्व तपासणी शिबिर",
+        ivfCampSub: "डॉ. अमेय मा. गुर्रम — M.B.B.S., DNB (OBGY), FRM | IVF व प्रजनन तज्ञ.",
+        connectInstagram: "Instagram वर फॉलो करा",
+        departmentsTitle: "विभाग व सुविधा",
+        whatsappMsg: "नमस्कार, अंकुर गुर्रम नर्सिंग होमवर अपॉइंटमेंट बुक करायची आहे.",
+        whatsappIvfMsg: "नमस्कार, डॉ. अमेय मा. गुर्रम यांच्याकडे IVF सल्ला हवा आहे — अंकुर गुर्रम नर्सिंग होम.",
+      },
+    };
+
+    const LanguageContext = React.createContext(null);
+
+    function LanguageProvider({ children }) {
+      const [lang, setLang] = useState(() => {
+        try {
+          return localStorage.getItem("agnh-lang") || "en";
+        } catch (e) {
+          return "en";
+        }
+      });
+      useEffect(() => {
+        try {
+          localStorage.setItem("agnh-lang", lang);
+        } catch (e) {}
+        document.documentElement.lang = lang === "mr" ? "mr" : "en";
+      }, [lang]);
+      const t = useCallback(
+        (key) => TRANSLATIONS[lang][key] || TRANSLATIONS.en[key] || key,
+        [lang]
+      );
+      return (
+        <LanguageContext.Provider value={{ lang, setLang, t }}>
+          {children}
+        </LanguageContext.Provider>
+      );
+    }
+
+    function useLang() {
+      return React.useContext(LanguageContext);
+    }
+
+    function LanguageToggle() {
+      const { lang, setLang, t } = useLang();
+      return (
+        <div className="fixed top-4 left-4 md:left-8 z-[60]">
+          <div className="bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-neutral-200 px-3 py-2 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+            <span className="font-body text-[11px] font-bold text-neutral-600 uppercase tracking-wide">
+              {t("chooseLanguage")}
+            </span>
+            <div className="flex gap-1">
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={`font-body text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
+                  lang === "en" ? "bg-[#0d9488] text-white" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
+                }`}
+              >
+                {t("english")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("mr")}
+                className={`font-body text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
+                  lang === "mr" ? "bg-[#0d9488] text-white" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
+                }`}
+              >
+                {t("marathi")}
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── FadingVideo ─── */
+    function FadingVideo({ src, className, style }) {
+      const videoRef = useRef(null);
+      const rafRef = useRef(null);
+      const fadingOutRef = useRef(false);
+
+      const fadeTo = useCallback((target, duration) => {
+        const video = videoRef.current;
+        if (!video) return;
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        const startOpacity = parseFloat(video.style.opacity) || 0;
+        const startTime = performance.now();
+        const step = (now) => {
+          const t = Math.min((now - startTime) / duration, 1);
+          video.style.opacity = String(startOpacity + (target - startOpacity) * t);
+          if (t < 1) rafRef.current = requestAnimationFrame(step);
+          else rafRef.current = null;
+        };
+        rafRef.current = requestAnimationFrame(step);
+      }, []);
+
+      useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const onLoadedData = () => {
+          video.style.opacity = "0";
+          video.play().catch(() => {});
+          fadeTo(1, FADE_MS);
+        };
+
+        const onTimeUpdate = () => {
+          if (fadingOutRef.current) return;
+          if (video.duration && video.duration - video.currentTime <= FADE_OUT_LEAD) {
+            fadingOutRef.current = true;
+            fadeTo(0, FADE_MS);
+          }
+        };
+
+        const onEnded = () => {
+          fadingOutRef.current = false;
+          video.style.opacity = "0";
+          setTimeout(() => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+            fadeTo(1, FADE_MS);
+          }, 100);
+        };
+
+        video.addEventListener("loadeddata", onLoadedData);
+        video.addEventListener("timeupdate", onTimeUpdate);
+        video.addEventListener("ended", onEnded);
+
+        return () => {
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          video.removeEventListener("loadeddata", onLoadedData);
+          video.removeEventListener("timeupdate", onTimeUpdate);
+          video.removeEventListener("ended", onEnded);
+        };
+      }, [fadeTo]);
+
+      return (
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          className={className}
+          style={{ ...style, opacity: 0 }}
+        />
+      );
+    }
+    window.FadingVideo = FadingVideo;
+
+    /* ─── BlurText ─── */
+    function BlurText({ text, className = "", delay = 0 }) {
+      const ref = useRef(null);
+      const [inView, setInView] = useState(false);
+      const words = text.split(/\s+/).filter(Boolean);
+
+      useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setInView(true);
+              observer.disconnect();
+            }
+          },
+          { threshold: 0.1 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+      }, []);
+
+      return (
+        <span ref={ref} className={className}>
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+              animate={
+                inView
+                  ? {
+                      filter: ["blur(10px)", "blur(5px)", "blur(0px)"],
+                      opacity: [0, 0.5, 1],
+                      y: [50, 0, 0],
+                    }
+                  : { filter: "blur(10px)", opacity: 0, y: 50 }
+              }
+              transition={{
+                duration: 0.7,
+                delay: delay + i * 0.1,
+                ease: "easeOut",
+              }}
+              style={{ display: "inline-block", marginRight: "0.28em" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </span>
+      );
+    }
+    window.BlurText = BlurText;
+
+    /* ─── Icons ─── */
+    function ClockIcon() {
+      return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={TEAL} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+      );
+    }
+    window.ClockIcon = ClockIcon;
+
+    function HeartIcon() {
+      return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={TEAL} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      );
+    }
+    window.HeartIcon = HeartIcon;
+
+    /* ─── Navbar ─── */
+    function Navbar() {
+      const { t } = useLang();
+      const wa = getWhatsAppLinks(t);
+      const links = [
+        { href: "#home", label: t("navHome") },
+        { href: "#services", label: t("navServices") },
+        { href: "#team", label: t("navDoctors") },
+        { href: "#fertility", label: t("navFertility") },
+        { href: "#blogs", label: t("navBlogs") },
+        { href: "#ivf-camp", label: t("navIvfCamp") },
+        { href: "#contact", label: t("navContact") },
+      ];
+
+      return (
+        <nav className="fixed top-4 left-0 right-0 z-50 flex items-center justify-between px-4 pl-[9.5rem] sm:pl-52 md:pl-56 lg:px-16 lg:pl-64">
+          <div className="liquid-glass w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shrink-0 hidden sm:flex">
+            <span className="font-heading italic text-white text-lg md:text-xl lowercase">a</span>
+          </div>
+
+          <div className="hidden xl:flex items-center gap-0.5 liquid-glass-strong rounded-full px-2 py-2 max-w-[calc(100vw-12rem)] overflow-x-auto">
+            {links.map((link, i) => (
+              <React.Fragment key={link.href}>
+                {i > 0 && <span className="text-white/50 text-xs select-none">·</span>}
+                <a
+                  href={link.href}
+                  className="font-body text-xs text-white font-bold hover:text-white px-2 py-1.5 transition-colors hero-readable whitespace-nowrap"
+                >
+                  {link.label}
+                </a>
+              </React.Fragment>
+            ))}
+            <a
+              href={wa.primary}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 bg-white text-[#1a3230] font-body text-xs font-bold px-4 py-2 rounded-full hover:bg-white/90 transition-colors whitespace-nowrap"
+            >
+              {t("bookAppointment")}
+            </a>
+          </div>
+
+          <a
+            href={wa.primary}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="xl:hidden bg-white text-[#1a3230] font-body text-xs font-bold px-4 py-2 rounded-full"
+          >
+            {t("bookAppointment")}
+          </a>
+        </nav>
+      );
+    }
+    window.Navbar = Navbar;
+
+    /* ─── Hero ─── */
+    function Hero() {
+      const { t, lang } = useLang();
+      const wa = getWhatsAppLinks(t);
+      const fadeUp = {
+        initial: { filter: "blur(10px)", opacity: 0, y: 20 },
+        animate: { filter: "blur(0px)", opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" },
+      };
+
+      return (
+        <section id="home" className="relative min-h-screen section-surface overflow-hidden flex flex-col">
+          <div className="hero-video-wrap" aria-hidden="true">
+            <FadingVideo src={HERO_VIDEO} className="hero-video-layer" />
+          </div>
+          <div className="absolute inset-0 z-[5] hero-video-overlay pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-[48%] z-[6] hero-top-fade pointer-events-none" />
+
+          <LanguageToggle />
+          <Navbar />
+
+          {/* Left / right sky columns — center stays open for the building */}
+          <div className="relative z-10 flex-1 w-full px-4 md:px-8 lg:px-12 xl:px-16 pt-28 pb-6 lg:pb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start lg:min-h-[calc(100vh-7rem)]">
+              <motion.div
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.35 }}
+                className="hero-side-panel lg:col-span-4 xl:col-span-3 lg:col-start-1 flex flex-col gap-5"
+              >
+                <div className="liquid-glass-strong rounded-[1.25rem] px-5 py-4 flex flex-col gap-3">
+                  <span className="bg-white text-[#050F0E] font-body text-xs font-bold px-3 py-1 rounded-full w-fit">
+                    {t("manyata")}
+                  </span>
+                  <span className="font-body text-sm md:text-base text-white font-bold hero-readable leading-snug">
+                    {t("fogsi")}
+                  </span>
+                </div>
+
+                <div className="liquid-glass-strong rounded-[1.25rem] px-6 py-7 md:px-7 md:py-8">
+                  <h1 className="font-heading italic text-white leading-[0.88] tracking-[-2px] text-4xl sm:text-5xl xl:text-[3.25rem] hero-readable">
+                    <BlurText key={lang} text={t("hospitalName")} delay={0.5} />
+                  </h1>
+                  <p className="mt-5 font-heading italic text-2xl sm:text-3xl xl:text-4xl text-white hero-readable tracking-[-1px] leading-tight">
+                    {t("tagline")}
+                  </p>
+                </div>
+              </motion.div>
+
+              <div className="hidden lg:block lg:col-span-4 xl:col-span-6" aria-hidden="true" />
+
+              <motion.div
+                initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.55 }}
+                className="hero-side-panel lg:col-span-4 xl:col-span-3 lg:col-start-10 flex flex-col gap-5"
+              >
+                <div className="liquid-glass-strong rounded-[1.25rem] px-6 py-6 md:py-7">
+                  <p className="hero-body font-body text-white hero-readable">
+                    {t("heroBody")}
+                  </p>
+                  <div className="mt-6 flex flex-col gap-3">
+                    <a
+                      href={wa.primary}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="liquid-glass-strong rounded-full px-7 py-4 font-body text-base font-bold text-white text-center hero-readable hover:bg-white/10 transition-colors"
+                    >
+                      {t("bookAppointment")}
+                    </a>
+                    <a
+                      href={wa.secondary}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body text-sm font-bold text-white hero-readable text-center py-2 hover:text-[#81D8D0] transition-colors"
+                    >
+                      WhatsApp {CONTACT.mobile2Display}
+                    </a>
+                    <a
+                      href="#services"
+                      className="font-body text-base font-bold text-white hero-readable text-center py-2 hover:text-[#81D8D0] transition-colors"
+                    >
+                      {t("ourFacilities")}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                  <div className="liquid-glass-strong rounded-[1.25rem] p-5">
+                    <ClockIcon />
+                    <p className="font-heading italic text-4xl xl:text-5xl text-white mt-3 hero-readable">20+</p>
+                    <p className="font-body text-base font-bold text-white mt-2 hero-readable">{t("yearsCare")}</p>
+                  </div>
+                  <div className="liquid-glass-strong rounded-[1.25rem] p-5">
+                    <HeartIcon />
+                    <p className="font-heading italic text-4xl xl:text-5xl text-white mt-3 hero-readable">10,000+</p>
+                    <p className="font-body text-base font-bold text-white mt-2 hero-readable">{t("successfulDeliveries")}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+            animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
+            className="relative z-10 pb-10 px-4 md:px-8 lg:px-12"
+          >
+            <div className="max-w-4xl mx-auto text-center mb-5">
+              <span className="liquid-glass-strong rounded-full px-5 py-2.5 font-body text-sm font-bold text-white hero-readable inline-block">
+                {t("familySpecialists")}
+              </span>
+            </div>
+            <a
+              href="#team"
+              className="liquid-glass-strong rounded-[1.25rem] px-6 py-5 flex flex-wrap justify-center gap-x-8 gap-y-3 font-body text-base sm:text-lg md:text-xl font-bold text-white hero-readable max-w-5xl mx-auto hover:bg-white/5 transition-colors"
+            >
+              <span>Dr. Manik A. Gurram</span>
+              <span className="text-white/40 hidden sm:inline">·</span>
+              <span>Dr. Sharmila Ma. Gurram</span>
+              <span className="text-white/40 hidden sm:inline">·</span>
+              <span>Dr. Amey Ma. Gurram</span>
+              <span className="text-white/40 hidden sm:inline">·</span>
+              <span>Dr. Dhara A. Gurram</span>
+            </a>
+          </motion.div>
+        </section>
+      );
+    }
+    window.Hero = Hero;
+
+    /* ─── Service Card (light / high contrast) ─── */
+    function ServiceCard({ tags, title, body }) {
+      return (
+        <article className="sight-card p-5 sm:p-6 min-h-[320px] flex flex-col hover:shadow-md transition-shadow">
+          <div className="flex flex-wrap gap-2 mb-5">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="font-body text-xs font-bold px-3 py-1 rounded-full border border-[#0d9488]/35 text-[#0f766e] bg-[#ecfdf9]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h3 className="font-heading italic text-3xl text-neutral-900 mb-3">{title}</h3>
+          <p className="font-body text-sm font-semibold text-neutral-700 leading-relaxed mt-auto">{body}</p>
+        </article>
+      );
+    }
+    window.ServiceCard = ServiceCard;
+
+    function getServices(lang) {
+      const data = {
+        en: [
+          { id: "maternity", tags: ["Safe Delivery", "Painless", "24/7 Care", "NICU"], title: "Maternity & Delivery", body: "Pre & post natal care, painless delivery, advanced maternity ward, and Manyata-certified safe delivery." },
+          { id: "fertility", tags: ["IVF", "IUI", "ICSI", "Fertility Preservation"], title: "Fertility & IVF", body: "IUI, IVF, ICSI, laser assisted hatching, third party reproduction, PGT, PRP/stem cell therapy, and endoscopy." },
+          { id: "surgery", tags: ["Laparoscopic", "Hysteroscopy", "Minimal Scars", "Fast Recovery"], title: "Advanced Laparoscopic Surgery", body: "Myomectomy, hysterectomy, ovarian tumor removal, ectopic pregnancy, NDVH, and hysteroscopy — fewer stitches, faster recovery." },
+        ],
+        mr: [
+          { id: "maternity", tags: ["सुरक्षित प्रसूती", "पेनलेस", "२४/७ काळजी", "NICU"], title: "प्रसूती व डिलिव्हरी", body: "प्रसूतीपूर्व व नंतरची काळजी, पेनलेस डिलिव्हरी, प्रगत प्रसूती विभाग व मन्यता प्रमाणित सुरक्षित प्रसूती." },
+          { id: "fertility", tags: ["IVF", "IUI", "ICSI", "प्रजनन जतन"], title: "प्रजनन व IVF", body: "IUI, IVF, ICSI, लेझर असिस्टेड हॅचिंग, थर्ड पार्टी रिप्रोडक्शन, PGT, PRP/स्टेम सेल थेरपी व एंडोस्कोपी." },
+          { id: "surgery", tags: ["लॅपरोस्कोपिक", "हिस्टेरोस्कोपी", "कमी व्रण", "लवकर बरे"], title: "प्रगत लॅपरोस्कोपिक शस्त्रक्रिया", body: "मायोमेक्टॉमी, हिस्टरेक्टॉमी, अंडाशयाच्या ट्यूमरची शस्त्रक्रिया, एक्टोपिक गर्भ, NDVH व हिस्टेरोस्कोपी." },
+        ],
+      };
+      return data[lang] || data.en;
+    }
+
+    function getDepartments(lang) {
+      const en = ["Pre & Post Natal Care", "Gynecology Surgery", "Government-approved Abortion Center", "Advanced Maternity Ward", "Vaccination", "Sonography", "Painless Delivery", "Infertility Treatment", "Cancer Diagnosis", "Family Planning Center", "Laparoscopic Surgery", "Pathology Laboratory"];
+      const mr = ["प्रसूतीपूर्व व नंतरची काळजी", "स्त्रीरोग शस्त्रक्रिया", "शासकीय मान्यताप्राप्त गर्भपात केंद्र", "प्रगत प्रसूती विभाग", "लसीकरण", "सोनोग्राफी", "पेनलेस डिलिव्हरी", "वंध्यत्व उपचार", "कर्करोग निदान", "कुटुंब नियोजन केंद्र", "लॅपरोस्कोपिक शस्त्रक्रिया", "पॅथॉलॉजी लॅब"];
+      return lang === "mr" ? mr : en;
+    }
+
+    function getBlogs(lang) {
+      const data = {
+        en: [
+          { slug: "ivf", title: "Understanding IVF Treatment", excerpt: "A complete guide to in-vitro fertilisation — when to consider IVF, steps involved, and success factors at our fertility centre.", category: "IVF" },
+          { slug: "embryo", title: "Embryo Care & Development", excerpt: "How embryos are cultured, graded, and cared for in the lab — and what pre-implantation genetic testing means for your family.", category: "Embryo" },
+          { slug: "nursing", title: "Nursing Care at Our Maternity Ward", excerpt: "24/7 nursing support, NICU readiness, and compassionate postnatal care for mother and newborn.", category: "Nursing" },
+          { slug: "childcare", title: "Child Care After Delivery", excerpt: "Vaccination schedules, newborn screening, and guidance for new parents from our paediatric partners.", category: "Child Care" },
+          { slug: "ivf-consult", title: "IVF Consultation with Dr. Amey Ma. Gurram", excerpt: "Book a fertility consultation — M.B.B.S., DNB (OBGY), FRM. Call or WhatsApp +91 8095911865.", category: "Consultation" },
+        ],
+        mr: [
+          { slug: "ivf", title: "IVF उपचार समजून घेणे", excerpt: "इन-विट्रो फर्टिलायझेशन — IVF कधी विचारात घ्यावे, टप्पे व यशाचे घटक.", category: "IVF" },
+          { slug: "embryo", title: "भ्रूण काळजी व विकास", excerpt: "लॅबमध्ये भ्रूण संवर्धन, ग्रेडिंग व प्रत्यारोपणपूर्व अनुवांशिक चाचणी.", category: "भ्रूण" },
+          { slug: "nursing", title: "प्रसूती विभागात नर्सिंग काळजी", excerpt: "२४/७ नर्सिंग, NICU सज्जता व माता-बाळाची प्रसूतीनंतरची काळजी.", category: "नर्सिंग" },
+          { slug: "childcare", title: "प्रसूतीनंतर बालकाळजी", excerpt: "लसीकरण वेळापत्रक, नवजात तपासणी व नवीन पालकांसाठी मार्गदर्शन.", category: "बालकाळजी" },
+          { slug: "ivf-consult", title: "डॉ. अमेय मा. गुर्रम — IVF सल्ला", excerpt: "प्रजनन सल्ला बुक करा — M.B.B.S., DNB (OBGY), FRM. WhatsApp: +91 8095911865.", category: "सल्ला" },
+        ],
+      };
+      return data[lang] || data.en;
+    }
+
+    /* ─── Services (Sight-style light frame) ─── */
+    function Services() {
+      const { t, lang } = useLang();
+      const services = getServices(lang);
+      const departments = getDepartments(lang);
+
+      return (
+        <section id="services" className="sight-page font-body">
+          <div className="sight-frame">
+            <div className="relative z-10 flex flex-col items-center px-4 sm:px-8 pt-16 sm:pt-20 pb-12 sm:pb-16 text-center">
+              <span className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-1.5 shadow-sm border border-neutral-200 font-body text-[13px] font-bold text-neutral-800">
+                <span className="w-2 h-2 rounded-full bg-[#0d9488]" aria-hidden="true" />
+                {t("ourServices")}
+              </span>
+              <h2 className="sight-headline mt-5 sm:mt-6 max-w-4xl" style={{ fontSize: "clamp(36px, 8vw, 72px)" }}>
+                <span className="font-heading italic font-normal">{lang === "mr" ? "काळजी" : "Care"}</span>
+                <br />
+                {lang === "mr" ? "नव्या दृष्टीने" : "Reimagined"}
+              </h2>
+              <p className="mt-4 sm:mt-6 text-neutral-800 font-body font-bold px-2 max-w-2xl" style={{ fontSize: "clamp(13px, 3.5vw, 16px)" }}>
+                {t("servicesSub")}
+              </p>
+
+              <div className="sight-tray w-full max-w-[880px] mx-auto mt-10 sm:mt-14 px-1 sm:px-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-left">
+                  {services.map((s) => (
+                    <div key={s.id} id={s.id === "fertility" ? "fertility" : undefined}>
+                      <ServiceCard {...s} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="w-full max-w-4xl mx-auto mt-12 text-left">
+                <h3 className="font-body text-xl font-bold text-neutral-900 text-center mb-6">{t("departmentsTitle")}</h3>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {departments.map((d) => (
+                    <span key={d} className="sight-card font-body text-xs font-bold text-neutral-800 px-3 py-2">
+                      {d}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    window.Services = Services;
+
+    const TEAM_IMAGE = "/public/images/meet-our-team.png";
+
+    const TEAM_DOCTORS_PHOTO = "/public/images/team-doctors.png";
+
+    /* Left → right in photo: Amey, Dhara, Manik, Sharmila */
+    function getTeamDoctors(lang) {
+      const data = {
+        en: [
+          { name: "Dr. Amey Ma. Gurram", degrees: "M.B.B.S., DNB (OBGY), FRM", role: "Consultant — IVF & Laparoscopic Surgery", specialty: "Fertility & IVF", bio: "IVF, IUI, ICSI, and advanced reproductive medicine. WhatsApp for consultation: +91 8095911865." },
+          { name: "Dr. Dhara A. Gurram", degrees: "M.B.B.S.", role: "Consultant", specialty: "Maternal & Fetal Medicine", bio: "Dedicated to safe deliveries, prenatal care, and neonatal support." },
+          { name: "Dr. Manik A. Gurram", degrees: "M.D., DICOG | Reg. No. 61899 | Laparoscopic Surgeon", role: "Senior Consultant", specialty: "Obstetrics & Gynaecology", bio: "Leading maternity and laparoscopic surgical care for families across Solapur." },
+          { name: "Dr. Sharmila Ma. Gurram", degrees: "M.D. | Reg. No. 58761 | Honorary Consultant", role: "Shri Markandey Solapur Co-op Hospital", specialty: "Infertility & IVF", bio: "Expert in fertility treatments including IVF, IUI, and comprehensive reproductive care." },
+        ],
+        mr: [
+          { name: "डॉ. अमेय मा. गुर्रम", degrees: "M.B.B.S., DNB (OBGY), FRM", role: "सल्लागार — IVF व लॅपरोस्कोपिक", specialty: "प्रजनन व IVF", bio: "IVF, IUI, ICSI व प्रगत प्रजनन औषध. सल्ल्यासाठी WhatsApp: +91 8095911865." },
+          { name: "डॉ. धारा अ. गुर्रम", degrees: "M.B.B.S.", role: "सल्लागार", specialty: "माता व भ्रूण वैद्यक", bio: "सुरक्षित प्रसूती, प्रसूतीपूर्व काळजी व नवजात समर्थन." },
+          { name: "डॉ. मणिक अ. गुर्रम", degrees: "M.D., DICOG | नोंदणी ६१८९९ | लॅपरोस्कोपिक शल्यचिकित्सक", role: "वरिष्ठ सल्लागार", specialty: "प्रसूती व स्त्रीरोग", bio: "सोलापूरमधील कुटुंबांसाठी प्रसूती व लॅपरोस्कोपिक शस्त्रक्रिया." },
+          { name: "डॉ. शर्मिला मा. गुर्रम", degrees: "M.D. | नोंदणी ५८७६१ | मानद सल्लागार", role: "श्री मार्कंडे सोलापूर सहकारी रुग्णालय", specialty: "वंध्यत्व व IVF", bio: "IVF, IUI व संपूर्ण प्रजनन उपचारात तज्ञ." },
+        ],
+      };
+      return data[lang] || data.en;
+    }
+
+    /* ─── Meet Our Team (intro) ─── */
+    function MeetOurTeam() {
+      const { t, lang } = useLang();
+      return (
+        <section id="team" className="sight-page font-body">
+          <div className="sight-frame">
+            <div className="relative z-10 px-4 sm:px-8 md:px-12 pt-16 sm:pt-20 pb-14 text-center">
+              <span className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-1.5 shadow-sm border border-neutral-200 font-body text-[13px] font-bold text-neutral-800">
+                <span className="w-2 h-2 rounded-full bg-[#0d9488]" aria-hidden="true" />
+                {t("ourTeam")}
+              </span>
+              <h2 className="sight-headline mt-5 sm:mt-6" style={{ fontSize: "clamp(36px, 7vw, 64px)" }}>
+                <span className="font-heading italic font-normal">{lang === "mr" ? "आमची" : "Meet"}</span>{" "}
+                {lang === "mr" ? "टीम ओळखा" : "Our Team"}
+              </h2>
+              <p className="mt-5 font-body text-neutral-800 font-bold text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                {t("meetTeamSub")}
+              </p>
+
+              <div className="sight-tray max-w-4xl mx-auto mt-10 sm:mt-12 overflow-hidden p-3 sm:p-4">
+                <img
+                  src={TEAM_IMAGE}
+                  alt="Ankur Gurram Nursing Home medical team caring for a mother and newborn in the delivery room"
+                  className="w-full h-auto block rounded-2xl"
+                />
+              </div>
+
+              <a
+                href="#doctors"
+                className="mt-8 sm:mt-10 inline-flex items-center gap-3 bg-[#0b0f1a] text-white rounded-full pl-6 sm:pl-7 pr-2 py-2.5 font-body text-sm font-bold hover:opacity-90 transition-opacity"
+              >
+                {t("viewTeam")}
+                <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-xs">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    window.MeetOurTeam = MeetOurTeam;
+
+    /* ─── Team details ─── */
+    function TeamPhotoLabel({ name, degrees }) {
+      const shortName = name.replace(/ Gurram$/, "").replace(/^Dr\. /, "Dr. ");
+      return (
+        <div className="team-photo-label">
+          <div className="rounded-xl md:rounded-2xl px-2 py-2.5 md:px-3 md:py-3.5 bg-[#0b0f1a]/75 backdrop-blur-sm border border-white/20">
+            <p className="glass-label-bold text-[0.62rem] leading-tight sm:text-xs md:text-sm lg:text-base">
+              {shortName}
+            </p>
+            <p className="glass-label-bold text-[0.5rem] sm:text-[0.58rem] md:text-[0.65rem] lg:text-xs mt-1 md:mt-1.5 leading-snug">
+              {degrees}
+            </p>
+          </div>
+        </div>
+      );
+    }
+    window.TeamPhotoLabel = TeamPhotoLabel;
+
+    function TeamMemberCard({ name, degrees, role, specialty, bio }) {
+      return (
+        <article className="sight-card p-5 md:p-6 flex flex-col h-full">
+          <p className="font-body text-xs font-bold uppercase tracking-wider text-[#0f766e]">{specialty}</p>
+          <h3 className="font-body text-xl md:text-2xl font-bold text-neutral-900 mt-2 leading-tight">{name}</h3>
+          <p className="font-body text-xs md:text-sm font-bold text-[#0d9488] mt-2 leading-snug">{degrees}</p>
+          <p className="font-body text-sm font-bold text-neutral-800 mt-1">{role}</p>
+          <p className="font-body text-sm font-semibold text-neutral-700 mt-3 leading-relaxed flex-1">{bio}</p>
+        </article>
+      );
+    }
+    window.TeamMemberCard = TeamMemberCard;
+
+    function TeamDetails() {
+      const { t, lang } = useLang();
+      const team = getTeamDoctors(lang);
+      return (
+        <section id="doctors" className="sight-page font-body">
+          <div className="sight-frame">
+            <div className="relative z-10 px-4 sm:px-8 md:px-12 pt-14 sm:pt-20 pb-14 sm:pb-20">
+              <div className="text-center max-w-3xl mx-auto">
+                <span className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-1.5 shadow-sm border border-neutral-200 font-body text-[13px] font-bold text-neutral-800">
+                  <span className="w-2 h-2 rounded-full bg-[#0d9488]" aria-hidden="true" />
+                  {t("specialists")}
+                </span>
+                <h2 className="sight-headline mt-5" style={{ fontSize: "clamp(32px, 6vw, 56px)" }}>
+                  <span className="font-heading italic font-normal">{lang === "mr" ? "आमचे" : "Our"}</span>{" "}
+                  {lang === "mr" ? "डॉक्टर" : "Doctors"}
+                </h2>
+                <p className="mt-4 font-body text-neutral-800 font-bold text-base md:text-lg">{t("doctorsSub")}</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mt-10 sm:mt-12 items-start max-w-6xl mx-auto">
+                <div className="lg:col-span-7 team-photo-wrap sight-card overflow-hidden p-0">
+                  <img
+                    src={TEAM_DOCTORS_PHOTO}
+                    alt="Dr. Amey Ma. Gurram, Dr. Dhara A. Gurram, Dr. Manik A. Gurram, Dr. Sharmila Ma. Gurram"
+                    className="w-full h-auto block"
+                  />
+                  <div className="team-photo-labels">
+                    {getTeamDoctors("en").map((doc) => (
+                      <TeamPhotoLabel key={doc.degrees} name={doc.name} degrees={doc.degrees} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 flex flex-col gap-3 sm:gap-4">
+                  {team.map((member) => (
+                    <TeamMemberCard key={member.name} {...member} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    window.TeamDetails = TeamDetails;
+
+    function Blogs() {
+      const { t, lang } = useLang();
+      const wa = getWhatsAppLinks(t);
+      const posts = getBlogs(lang);
+      return (
+        <section id="blogs" className="sight-page font-body">
+          <div className="sight-frame min-h-0">
+            <div className="relative z-10 px-4 sm:px-8 py-16 sm:py-20 max-w-5xl mx-auto">
+              <h2 className="sight-headline text-center" style={{ fontSize: "clamp(28px, 5vw, 48px)" }}>
+                {t("blogsTitle")}
+              </h2>
+              <p className="text-center font-body font-bold text-neutral-800 mt-4 max-w-2xl mx-auto">{t("blogsSub")}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+                {posts.map((post) => (
+                  <article key={post.slug} className="sight-card p-6 text-left flex flex-col">
+                    <span className="font-body text-xs font-bold text-[#0d9488] uppercase">{post.category}</span>
+                    <h3 className="font-body text-lg font-bold text-neutral-900 mt-2">{post.title}</h3>
+                    <p className="font-body text-sm font-semibold text-neutral-700 mt-3 flex-1">{post.excerpt}</p>
+                    <a
+                      href={post.slug === "ivf-consult" ? wa.ivf : "#contact"}
+                      target={post.slug === "ivf-consult" ? "_blank" : undefined}
+                      rel={post.slug === "ivf-consult" ? "noopener noreferrer" : undefined}
+                      className="font-body text-sm font-bold text-[#0d9488] mt-4 hover:underline"
+                    >
+                      {t("readMore")}
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    window.Blogs = Blogs;
+
+    function IVFCamp() {
+      const { t } = useLang();
+      const wa = getWhatsAppLinks(t);
+      return (
+        <section id="ivf-camp" className="sight-page font-body">
+          <div className="sight-frame min-h-0">
+            <div className="relative z-10 px-4 sm:px-8 py-16 sm:py-20 max-w-4xl mx-auto text-center">
+              <h2 className="sight-headline" style={{ fontSize: "clamp(28px, 5vw, 48px)" }}>{t("ivfCampTitle")}</h2>
+              <p className="font-body font-bold text-neutral-800 mt-4 text-base md:text-lg">{t("ivfCampSub")}</p>
+              <p className="font-body font-bold text-[#0d9488] mt-2">+91 {CONTACT.mobile2Display} · {CONTACT.ivfDoctor}</p>
+              <div className="sight-tray mt-8 p-3 sm:p-4 overflow-hidden">
+                <img src={IVF_CAMP_IMAGE} alt="Free infertility checkup camp — Ankur Gurram Nursing Home" className="w-full h-auto rounded-2xl" />
+              </div>
+              <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+                <a href={wa.ivf} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-4 font-body font-bold text-white hover:opacity-90">
+                  {t("whatsappIvf")}
+                </a>
+                <a href={`tel:${CONTACT.mobile2}`} className="sight-card rounded-full px-8 py-4 font-body font-bold text-neutral-900 hover:shadow-md">
+                  {t("callLandline")} +91 {CONTACT.mobile2Display}
+                </a>
+                <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] rounded-full px-8 py-4 font-body font-bold text-white hover:opacity-90">
+                  {t("connectInstagram")} {CONTACT.instagramHandle}
+                </a>
+              </div>
+              <a href={`mailto:${CONTACT.email}`} className="inline-block mt-6 font-body font-bold text-neutral-700 hover:text-[#0d9488]">
+                {CONTACT.email}
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    window.IVFCamp = IVFCamp;
+
+    /* ─── Map (below hero) ─── */
+    function LocationMap() {
+      const { t } = useLang();
+      const wa = getWhatsAppLinks(t);
+      return (
+        <section id="location" className="section-surface-mid py-16 md:py-20 px-8 md:px-16 lg:px-20">
+          <p className="font-body text-sm font-bold text-[#2d4f4c]">// {t("visitUs")}</p>
+          <h2 className="font-body text-4xl md:text-5xl font-bold text-[#1a3230] mt-3 tracking-tight">{t("findHospital")}</h2>
+          <p className="mt-4 font-body text-base font-bold text-[#2d4f4c] max-w-xl leading-relaxed">{CONTACT.address}</p>
+          <div className="sight-card overflow-hidden mt-8 aspect-[16/10] md:aspect-[21/9] w-full max-w-5xl">
+            <iframe
+              title="Ankur Gurram Nursing Home on Google Maps"
+              src={CONTACT.mapsEmbed}
+              className="w-full h-full min-h-[280px] md:min-h-[360px] border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <a href={CONTACT.mapsDirections} target="_blank" rel="noopener noreferrer" className="bg-[#0b0f1a] rounded-full px-8 py-3.5 font-body text-sm font-bold text-white hover:opacity-90">
+              {t("getDirections")}
+            </a>
+            <a href={wa.primary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-3.5 font-body text-sm font-bold text-white hover:opacity-90">
+              WhatsApp {CONTACT.mobile1Display}
+            </a>
+            <a href={wa.secondary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-3.5 font-body text-sm font-bold text-white hover:opacity-90">
+              WhatsApp {CONTACT.mobile2Display}
+            </a>
+          </div>
+        </section>
+      );
+    }
+    window.LocationMap = LocationMap;
+
+    function Contact() {
+      const { t } = useLang();
+      const wa = getWhatsAppLinks(t);
+      return (
+        <section id="contact" className="relative section-surface py-24 px-8 md:px-16 lg:px-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="font-body text-sm font-bold text-[#81D8D0] mb-4">// {t("getInTouch")}</p>
+            <h2 className="font-body text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">{t("bookTitle")}</h2>
+            <p className="font-body text-white/90 font-bold mb-8 text-base md:text-lg">{t("contactSub")}</p>
+            <p className="font-body text-white/80 font-bold text-sm mb-10">
+              {CONTACT.address}<br />
+              {t("callLandline")}: {CONTACT.phoneLandlineDisplay} · {CONTACT.mobile1Display} · {CONTACT.mobile2Display}<br />
+              {CONTACT.email}
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-6">
+              <a href={wa.primary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-4 font-body text-base font-bold text-white hover:opacity-90">
+                WhatsApp {CONTACT.mobile1Display}
+              </a>
+              <a href={wa.secondary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-4 font-body text-base font-bold text-white hover:opacity-90">
+                WhatsApp {CONTACT.mobile2Display}
+              </a>
+            </div>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-10">
+              <a href={wa.ivf} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong rounded-full px-8 py-4 font-body text-sm font-bold text-white hover:bg-white/10">
+                {t("whatsappIvf")}
+              </a>
+              <a href={`tel:${CONTACT.phoneLandline}`} className="liquid-glass-strong rounded-full px-8 py-4 font-body text-sm font-bold text-white hover:bg-white/10">
+                {t("callLandline")} {CONTACT.phoneLandlineDisplay}
+              </a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 font-body text-sm font-bold">
+              <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="text-[#81D8D0] hover:text-white">{t("instagram")} {CONTACT.instagramHandle}</a>
+              <a href={CONTACT.mapsDirections} target="_blank" rel="noopener noreferrer" className="text-[#81D8D0] hover:text-white">{t("googleMaps")}</a>
+              <a href={`mailto:${CONTACT.email}`} className="text-[#81D8D0] hover:text-white">{t("email")}</a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    window.Contact = Contact;
+
+    function App() {
+      return (
+        <LanguageProvider>
+          <Hero />
+          <LocationMap />
+          <Services />
+          <MeetOurTeam />
+          <TeamDetails />
+          <Blogs />
+          <IVFCamp />
+          <Contact />
+        </LanguageProvider>
+      );
+    }
+    window.App = App;
+
+    createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

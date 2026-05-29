@@ -1,0 +1,11 @@
+Drop your background video in this folder:
+
+  (Cmd+Shift+R).E6187E38-850C-47DE-ADA8-EAF708E4FAA0.mp4
+
+Full path on disk:
+  public/videos/hero-bg.mp4
+
+The site loads it from:
+  /public/videos/hero-bg.mp4
+
+Restart your local server after adding the file, then hard-refresh the browser 
