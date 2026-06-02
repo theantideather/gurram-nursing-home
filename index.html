@@ -28,39 +28,42 @@
     html { scroll-behavior: smooth; }
     body { background: #000; margin: 0; }
     .liquid-glass {
-      background: rgba(255,255,255,0.01);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       border: none;
-      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.03);
       position: relative;
       overflow: hidden;
+      color: #ffffff;
     }
     .liquid-glass::before {
       content: "";
       position: absolute; inset: 0;
       border-radius: inherit;
       padding: 1.4px;
+      /* subtle dark rim to reinforce a darker glass look */
       background: linear-gradient(180deg,
-        rgba(255,255,255,0.45) 0%,
-        rgba(255,255,255,0.15) 20%,
-        rgba(255,255,255,0) 40%,
-        rgba(255,255,255,0) 60%,
-        rgba(255,255,255,0.15) 80%,
-        rgba(255,255,255,0.45) 100%);
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.25) 20%,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0) 60%,
+        rgba(0,0,0,0.12) 80%,
+        rgba(0,0,0,0.45) 100%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
     }
     .liquid-glass-strong {
-      background: rgba(255,255,255,0.01);
-      backdrop-filter: blur(50px);
-      -webkit-backdrop-filter: blur(50px);
+      background: rgba(0,0,0,0.62);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
       border: none;
-      box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);
+      box-shadow: 6px 6px 18px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.02);
       position: relative;
       overflow: hidden;
+      color: #ffffff;
     }
     .liquid-glass-strong::before {
       content: "";
@@ -68,16 +71,22 @@
       border-radius: inherit;
       padding: 1.4px;
       background: linear-gradient(180deg,
-        rgba(255,255,255,0.5) 0%,
-        rgba(255,255,255,0.2) 20%,
-        rgba(255,255,255,0) 40%,
-        rgba(255,255,255,0) 60%,
-        rgba(255,255,255,0.2) 80%,
-        rgba(255,255,255,0.5) 100%);
+        rgba(0,0,0,0.6) 0%,
+        rgba(0,0,0,0.4) 18%,
+        rgba(0,0,0,0) 42%,
+        rgba(0,0,0,0) 58%,
+        rgba(0,0,0,0.2) 82%,
+        rgba(0,0,0,0.6) 100%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
+    }
+    .font-inter {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-instrument {
+      font-family: 'Instrument Serif', serif;
     }
     /* Full-bleed video; slight zoom-out via min-size, no side bars */
     .hero-video-wrap {
@@ -96,7 +105,8 @@
       height: auto;
       transform: translate(-50%, -48%);
       object-fit: cover;
-      object-position: center center;
+      /* nudge video up to crop a little from the bottom (hides small watermark) */
+      object-position: center 30%;
     }
     .hero-video-overlay {
       background: linear-gradient(
@@ -623,6 +633,46 @@
     }
     window.HeartIcon = HeartIcon;
 
+    function Gauge({ value, color = "#ef4d23", showLabels = false, min = "0", max = "100" }) {
+      const tickCount = 40;
+      const activeCount = Math.round((value / 100) * tickCount);
+      return (
+        <div className="gauge max-w-[260px] mx-auto">
+          <svg viewBox="0 0 200 120" className="w-full h-auto" aria-hidden="true">
+            {Array.from({ length: tickCount }).map((_, index) => {
+              const angle = Math.PI + (Math.PI * index) / (tickCount - 1);
+              const x1 = 100 + Math.cos(angle) * 70;
+              const y1 = 100 + Math.sin(angle) * 70;
+              const x2 = 100 + Math.cos(angle) * 80;
+              const y2 = 100 + Math.sin(angle) * 80;
+              return (
+                <line
+                  key={index}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                  stroke={index < activeCount ? color : "#d4d4d8"}
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+              );
+            })}
+            <text x="100" y="105" textAnchor="middle" fontSize="22" fontWeight="600" fill="#0b0f1a">
+              {value}%
+            </text>
+          </svg>
+          {showLabels ? (
+            <div className="mt-3 flex justify-between text-[11px] text-neutral-500">
+              <span>{min}</span>
+              <span>{max}</span>
+            </div>
+          ) : null}
+        </div>
+      );
+    }
+    window.Gauge = Gauge;
+
     /* ─── Navbar ─── */
     function Navbar() {
       const { t } = useLang();
@@ -1066,34 +1116,140 @@
     function Blogs() {
       const { t, lang } = useLang();
       const wa = getWhatsAppLinks(t);
+      const [expanded, setExpanded] = React.useState(null);
       const posts = getBlogs(lang);
+      const details = {
+        ivf: {
+          description: "In-vitro fertilisation is a personalised journey. We explain who is a strong IVF candidate, how ovarian stimulation and monitoring work, and why the lab care after retrieval is critical for your success.",
+          bullets: [
+            "Step-by-step IVF process with timing, medications, and monitoring.",
+            "What to expect during egg retrieval, fertilisation, and embryo transfer.",
+            "How modern lab care improves embryo quality and stability."
+          ],
+          resources: [
+            { title: "IVF success rates in India", href: "https://www.google.com/search?q=IVF+success+rates+India" },
+            { title: "Pre-implantation Genetic Testing India", href: "https://www.google.com/search?q=Pre-implantation+Genetic+Testing+India" },
+          ],
+        },
+        embryo: {
+          description: "Embryo care starts in the lab and continues through transfer. We help you understand embryo grading, culture conditions, and the decision points for biopsy or freezing.",
+          bullets: [
+            "How culture media and lab conditions support healthy embryo growth.",
+            "What embryo grading means and how it affects transfer decisions.",
+            "When embryo biopsy or PGT is used to improve outcomes."
+          ],
+          resources: [
+            { title: "Embryo culture process India", href: "https://www.google.com/search?q=Embryo+culture+process+India" },
+            { title: "Healthy embryo development guidelines", href: "https://www.google.com/search?q=Healthy+embryo+development+India" },
+          ],
+        },
+        nursing: {
+          description: "Our maternity ward provides round-the-clock nursing support for delivery, postpartum recovery, and newborn transition. This section outlines the practical care steps we take to keep families safe and comfortable.",
+          bullets: [
+            "Continuous monitoring during labour and delivery for mother and baby.",
+            "NICU readiness and early breastfeeding support in the first hours.",
+            "Personalised postpartum plans for recovery, nutrition, and rest."
+          ],
+          resources: [
+            { title: "NICU care standards India", href: "https://www.google.com/search?q=NICU+care+standards+India" },
+            { title: "Postpartum recovery guide India", href: "https://www.google.com/search?q=Postpartum+recovery+guide+India" },
+          ],
+        },
+        childcare: {
+          description: "After delivery, newborn care focuses on vaccinations, screenings, and early development. We explain how our team supports new parents with every milestone in the first months.",
+          bullets: [
+            "Vaccination schedule planning for newborn and infant health.",
+            "Newborn screening and developmental checklists for early care.",
+            "Parent education on feeding, sleep, hygiene, and growth."
+          ],
+          resources: [
+            { title: "Newborn screening India", href: "https://www.google.com/search?q=Newborn+screening+India" },
+            { title: "Parenting after delivery India", href: "https://www.google.com/search?q=Parenting+after+delivery+India" },
+          ],
+        },
+        "ivf-consult": {
+          description: "Our IVF consultation focuses on personalising your fertility plan. Dr. Amey Ma. Gurram combines clinical expertise with supportive counselling to build the right path for your family.",
+          bullets: [
+            "Detailed fertility evaluation and medical history review.",
+            "Lab testing, hormone profiling, and treatment planning.",
+            "Clear guidance on cost, timing, and next steps."
+          ],
+          resources: [
+            { title: "IVF consultation preparation India", href: "https://www.google.com/search?q=IVF+consultation+preparation+India" },
+            { title: "Fertility treatment timeline India", href: "https://www.google.com/search?q=Fertility+treatment+timeline+India" },
+          ],
+        },
+      };
       return (
-        <section id="blogs" className="sight-page font-body">
-          <div className="sight-frame min-h-0">
-            <div className="relative z-10 px-4 sm:px-8 py-16 sm:py-20 max-w-5xl mx-auto">
-              <h2 className="sight-headline text-center" style={{ fontSize: "clamp(28px, 5vw, 48px)" }}>
+        <section id="blogs" className="sight-page font-body relative overflow-hidden">
+          <video
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-35"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            disableRemotePlayback
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            poster="https://images.unsplash.com/photo-1557683316-973673baf926?w=1600&q=60"
+          >
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260429_182501_0216c2be-1b2f-40d3-8716-0d4f42e73b44.mp4" type="video/mp4" />
+          </video>
+          <div className="relative px-4 sm:px-8 py-16 sm:py-20 max-w-6xl mx-auto">
+            <div className="relative z-10 max-w-4xl mx-auto text-center">
+              <h2 className="sight-headline text-center text-white" style={{ fontSize: "clamp(28px, 5vw, 48px)" }}>
                 {t("blogsTitle")}
               </h2>
-              <p className="text-center font-body font-bold text-neutral-800 mt-4 max-w-2xl mx-auto">{t("blogsSub")}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
-                {posts.map((post) => (
-                  <article key={post.slug} className="sight-card p-6 text-left flex flex-col">
-                    <span className="font-body text-xs font-bold text-[#0d9488] uppercase">{post.category}</span>
-                    <h3 className="font-body text-lg font-bold text-neutral-900 mt-2">{post.title}</h3>
-                    <p className="font-body text-sm font-semibold text-neutral-700 mt-3 flex-1">{post.excerpt}</p>
-                    <a
-                      href={post.slug === "ivf-consult" ? wa.ivf : "#contact"}
-                      target={post.slug === "ivf-consult" ? "_blank" : undefined}
-                      rel={post.slug === "ivf-consult" ? "noopener noreferrer" : undefined}
-                      className="font-body text-sm font-bold text-[#0d9488] mt-4 hover:underline"
-                    >
-                      {t("readMore")}
-                    </a>
-                  </article>
-                ))}
+              <p className="text-center font-body font-bold text-white/85 mt-4 max-w-2xl mx-auto">{t("blogsSub")}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
+                {posts.map((post) => {
+                  const isOpen = expanded === post.slug;
+                  const detail = details[post.slug];
+                  return (
+                    <article key={post.slug} className="p-6 text-left flex flex-col bg-white/5 border border-white/10 shadow-sm text-black">
+                      <span className="font-body text-xs font-bold text-black/60 uppercase">{post.category}</span>
+                      <h3 className="font-body text-xl font-extrabold text-black mt-2">{post.title}</h3>
+                      <p className="font-body text-sm text-black/80 mt-3 flex-1 font-semibold">{post.excerpt}</p>
+                      <button
+                        type="button"
+                        onClick={() => setExpanded(isOpen ? null : post.slug)}
+                        className="mt-5 self-start text-sm font-bold text-black hover:text-[#0d9488]"
+                      >
+                        {isOpen ? "Show less" : t("readMore")}
+                      </button>
+                      {isOpen && detail ? (
+                        <div className="mt-5 rounded-3xl bg-white/5 border border-white/10 p-5 text-black">
+                          <p className="text-sm leading-relaxed font-medium">{detail.description}</p>
+                          <div className="mt-4 space-y-2">
+                            {detail.bullets.map((bullet) => (
+                              <p key={bullet} className="text-sm text-black/70">• {bullet}</p>
+                            ))}
+                          </div>
+                              <div className="mt-6 border-t border-white/10 pt-4">
+                            <p className="text-sm font-semibold text-black">Resources</p>
+                            <div className="mt-3 space-y-2">
+                              {detail.resources.map((resource) => (
+                                <a
+                                  key={resource.title}
+                                  href={resource.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block text-sm text-[#0d9488] hover:underline"
+                                >
+                                  {resource.title}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+                    </article>
+                  );
+                })}
               </div>
             </div>
-          </div>
         </section>
       );
     }
@@ -1103,12 +1259,26 @@
       const { t } = useLang();
       const wa = getWhatsAppLinks(t);
       return (
-        <section id="ivf-camp" className="sight-page font-body">
-          <div className="sight-frame min-h-0">
-            <div className="relative z-10 px-4 sm:px-8 py-16 sm:py-20 max-w-4xl mx-auto text-center">
+        <section id="ivf-camp" className="sight-page font-body relative overflow-hidden">
+          <video
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-45"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            disableRemotePlayback
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            poster="https://images.unsplash.com/photo-1557683316-973673baf926?w=1600&q=60"
+          >
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_074327_a4d6275d-82d9-4c83-bfbe-f1fb2213c17c.mp4" type="video/mp4" />
+          </video>
+          <div className="sight-frame min-h-0 relative bg-slate-950/25 border border-white/20 backdrop-blur-xl">
+            <div className="relative z-10 px-4 sm:px-8 py-16 sm:py-20 max-w-4xl mx-auto text-center text-white">
               <h2 className="sight-headline" style={{ fontSize: "clamp(28px, 5vw, 48px)" }}>{t("ivfCampTitle")}</h2>
-              <p className="font-body font-bold text-neutral-800 mt-4 text-base md:text-lg">{t("ivfCampSub")}</p>
-              <p className="font-body font-bold text-[#0d9488] mt-2">+91 {CONTACT.mobile2Display} · {CONTACT.ivfDoctor}</p>
+              <p className="font-body font-bold mt-4 text-white text-base md:text-lg">{t("ivfCampSub")}</p>
+              <p className="font-body font-bold text-white/80 mt-2">+91 {CONTACT.mobile2Display} · {CONTACT.ivfDoctor}</p>
               <div className="sight-tray mt-8 p-3 sm:p-4 overflow-hidden">
                 <img src={IVF_CAMP_IMAGE} alt="Free infertility checkup camp — Ankur Gurram Nursing Home" className="w-full h-auto rounded-2xl" />
               </div>
@@ -1137,31 +1307,88 @@
     function LocationMap() {
       const { t } = useLang();
       const wa = getWhatsAppLinks(t);
+
       return (
-        <section id="location" className="section-surface-mid py-16 md:py-20 px-8 md:px-16 lg:px-20">
-          <p className="font-body text-sm font-bold text-[#2d4f4c]">// {t("visitUs")}</p>
-          <h2 className="font-body text-4xl md:text-5xl font-bold text-[#1a3230] mt-3 tracking-tight">{t("findHospital")}</h2>
-          <p className="mt-4 font-body text-base font-bold text-[#2d4f4c] max-w-xl leading-relaxed">{CONTACT.address}</p>
-          <div className="sight-card overflow-hidden mt-8 aspect-[16/10] md:aspect-[21/9] w-full max-w-5xl">
-            <iframe
-              title="Ankur Gurram Nursing Home on Google Maps"
-              src={CONTACT.mapsEmbed}
-              className="w-full h-full min-h-[280px] md:min-h-[360px] border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <a href={CONTACT.mapsDirections} target="_blank" rel="noopener noreferrer" className="bg-[#0b0f1a] rounded-full px-8 py-3.5 font-body text-sm font-bold text-white hover:opacity-90">
-              {t("getDirections")}
-            </a>
-            <a href={wa.primary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-3.5 font-body text-sm font-bold text-white hover:opacity-90">
-              WhatsApp {CONTACT.mobile1Display}
-            </a>
-            <a href={wa.secondary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-3.5 font-body text-sm font-bold text-white hover:opacity-90">
-              WhatsApp {CONTACT.mobile2Display}
-            </a>
+        <section id="location" className="py-16 md:py-20 px-6 md:px-12 lg:px-16 relative overflow-hidden bg-transparent">
+          <video
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-45"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            disableRemotePlayback
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            poster="https://images.unsplash.com/photo-1557683316-973673baf926?w=1600&q=60"
+          >
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_074327_a4d6275d-82d9-4c83-bfbe-f1fb2213c17c.mp4" type="video/mp4" />
+          </video>
+          <div className="max-w-7xl mx-auto relative">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-slate-950/15 shadow-2xl backdrop-blur-2xl">
+              <div className="relative grid gap-8 lg:grid-cols-[1.05fr_0.95fr] p-6 sm:p-8 lg:p-10">
+                <div className="flex flex-col justify-center gap-6 text-white">
+                  <p className="font-body text-sm font-bold text-white/80">// {t("visitUs")}</p>
+                  <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight max-w-2xl">{t("findHospital")}</h2>
+                  <p className="max-w-xl text-base sm:text-lg text-white/80 leading-relaxed">
+                    {CONTACT.address}
+                  </p>
+                  <p className="max-w-xl text-sm sm:text-base text-white/70 leading-relaxed">
+                    Visit Ankur Gurram Nursing Home for trusted maternity, infertility, and laparoscopic care in Solapur. Use the map below or open Google Maps for directions and contact details.
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <a
+                      href={CONTACT.mapsDirections}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-[#0b3b38] text-white px-6 py-3 text-sm font-bold hover:bg-[#134f4b] transition"
+                    >
+                      {t("getDirections")}
+                    </a>
+                    <a
+                      href={wa.primary}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-[#25d366] text-white px-6 py-3 text-sm font-bold hover:bg-[#1cb95a] transition"
+                    >
+                      WhatsApp {CONTACT.mobile1Display}
+                    </a>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-3xl bg-slate-950/20 border border-white/10 p-5 shadow-sm">
+                      <p className="text-xs uppercase tracking-[0.22em] text-white/60 font-semibold mb-2">Hospital</p>
+                      <p className="text-lg font-semibold text-white">{t("hospitalName")}</p>
+                      <p className="mt-2 text-sm text-white/70 leading-relaxed">{CONTACT.address}</p>
+                    </div>
+                    <div className="rounded-3xl bg-slate-950/20 border border-white/10 p-5 shadow-sm">
+                      <p className="text-xs uppercase tracking-[0.22em] text-white/60 font-semibold mb-2">Map link</p>
+                      <a
+                        href={CONTACT.mapsDirections}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold text-white/80 hover:text-white break-words"
+                      >
+                        Open in Google Maps
+                      </a>
+                      <p className="mt-4 text-sm text-white/70">Tap to view the exact location and directions on desktop or mobile.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-center">
+                  <div className="w-full aspect-[16/10] rounded-[2rem] overflow-hidden border border-white/20 shadow-xl bg-slate-950/15">
+                    <iframe
+                      title="Ankur Gurram Nursing Home on Google Maps"
+                      src={CONTACT.mapsEmbed}
+                      className="w-full h-full border-0"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       );
@@ -1172,21 +1399,35 @@
       const { t } = useLang();
       const wa = getWhatsAppLinks(t);
       return (
-        <section id="contact" className="relative section-surface py-24 px-8 md:px-16 lg:px-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="font-body text-sm font-bold text-[#81D8D0] mb-4">// {t("getInTouch")}</p>
+        <section id="contact" className="relative overflow-hidden py-24 px-8 md:px-16 lg:px-20">
+          <video
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-45"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            disableRemotePlayback
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            poster="https://images.unsplash.com/photo-1557683316-973673baf926?w=1600&q=60"
+          >
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4" />
+          </video>
+          <div className="relative max-w-3xl mx-auto text-center bg-slate-950/55 border border-white/10 backdrop-blur-2xl rounded-[2rem] p-10 shadow-2xl text-white">
+            <p className="font-body text-sm font-bold text-white/80 mb-4">// {t("getInTouch")}</p>
             <h2 className="font-body text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">{t("bookTitle")}</h2>
-            <p className="font-body text-white/90 font-bold mb-8 text-base md:text-lg">{t("contactSub")}</p>
-            <p className="font-body text-white/80 font-bold text-sm mb-10">
+            <p className="font-body text-white font-bold mb-8 text-base md:text-lg">{t("contactSub")}</p>
+            <p className="font-body text-white font-bold text-sm mb-10">
               {CONTACT.address}<br />
               {t("callLandline")}: {CONTACT.phoneLandlineDisplay} · {CONTACT.mobile1Display} · {CONTACT.mobile2Display}<br />
               {CONTACT.email}
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-6">
-              <a href={wa.primary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-4 font-body text-base font-bold text-white hover:opacity-90">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-10">
+              <a href={wa.primary} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full px-8 py-4 font-body text-base font-bold text-white hover:bg-white/20 transition">
                 WhatsApp {CONTACT.mobile1Display}
               </a>
-              <a href={wa.secondary} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] rounded-full px-8 py-4 font-body text-base font-bold text-white hover:opacity-90">
+              <a href={wa.secondary} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full px-8 py-4 font-body text-base font-bold text-white hover:bg-white/20 transition">
                 WhatsApp {CONTACT.mobile2Display}
               </a>
             </div>
